@@ -1,31 +1,43 @@
+import { useState } from 'react'
 
 import Navbar from './components/layout/Navbar'
 import './App.css'
-import AlgorithmSelector from'./components/algorithm/AlgorithmSelector'
+import AlgorithmSelector from './components/algorithm/AlgorithmSelector'
+import InputPanel from './components/input/InputPanel'
 
-function App(){
+function App() {
+
+  const [selectedCategory, setSelectedCategory] = useState('searching')
+
+  const [selectedAlgorithm, setSelectedAlgorithm] =
+    useState('linearSearch')
 
   return (
-   <>
-     <Navbar/>
+    <>
+      <Navbar />
 
-     <main>
-       <h2>Algorithm Visualizer</h2>
+      <main>
+        <h2>Algorithm Visualizer</h2>
 
-       <AlgorithmSelector/>
+        <AlgorithmSelector
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          selectedAlgorithm={selectedAlgorithm}
+          setSelectedAlgorithm={setSelectedAlgorithm}
+        />
 
-       <section>
-        <h3>Input</h3>
-       </section>
+        <InputPanel
+          selectedCategory={selectedCategory}
+          selectedAlgorithm={selectedAlgorithm}
+        />
 
-       <section>
-        <h3>Visualization</h3>
-       </section>
+        <section>
+          <h3>Visualization</h3>
+        </section>
 
-     </main>
-   </>
+      </main>
+    </>
   )
-    
 }
 
 export default App

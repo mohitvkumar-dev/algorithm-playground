@@ -1,13 +1,18 @@
-nav{
+nav {
   display: flex;
-  flex-direction:column;
-  align-items:center;
+  flex-direction: column;
+  align-items: center;
 }
 
-nav > div:last-child{
+nav > div:last-child {
   display: flex;
-  gap:24px;
+  gap: 24px;
 }
+
+
+/* =========================
+   Algorithm Selector
+   ========================= */
 
 .algorithm-selector {
   width: 100%;
@@ -56,8 +61,84 @@ nav > div:last-child{
   border-color: #646cff;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+
+/* =========================
+   Input Panel
+   ========================= */
+
+.input-panel {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.input-panel h2 {
+  margin-bottom: 20px;
+}
+
+
+/* Each dynamic input */
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.input-field label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.input-field input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+
+/* Buttons */
+
+.input-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.input-buttons button {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #aa3bff;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.input-buttons button:hover {
+  opacity: 0.9;
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 700px) {
+
   .algorithm-selector {
     padding: 20px 15px;
   }
@@ -65,5 +146,19 @@ nav > div:last-child{
   .selectors {
     flex-direction: column;
     gap: 15px;
+  }
+
+  .input-panel {
+    padding: 20px 15px;
+  }
+
+  .input-buttons {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .input-buttons button {
+    flex: 1;
+    min-width: 100px;
   }
 }

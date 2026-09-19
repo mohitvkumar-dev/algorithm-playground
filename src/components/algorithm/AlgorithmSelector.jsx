@@ -1,49 +1,79 @@
-import { useState } from 'react'
 import algorithms from '../../data/algorithms'
 
-function AlgorithmSelector() {
-  const categories = Object.keys(algorithms)
+function AlgorithmSelector({
+  selectedCategory,
+  setSelectedCategory,
+  selectedAlgorithm,
+  setSelectedAlgorithm
+}) {
 
-  const [category, setCategory] = useState(categories[0])
-
-  const availableAlgorithms = algorithms[category]
+  const category = algorithms[selectedCategory]
 
   return (
-    <>
-      <div className="algorithm-selector">
-  <h1>Select Algorithm</h1>
+    <section className="algorithm-selector">
 
-  <div className="selectors">
-    <div className="selector-group">
-      <label>Select Category</label>
+      <h1>Select Algorithm</h1>
 
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      >
-        {categories.map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
-    </div>
+      <div className="selectors">
 
-    <div className="selector-group">
-      <label>Select Algorithm</label>
+        {/* Category */}
+        <div className="selector-group">
 
-      <select>
-        {availableAlgorithms.map((algorithm) => (
-          <option key={algorithm} value={algorithm}>
-            {algorithm}
-          </option>
-        ))}
-      </select>
-    </div>
-  </div>
-</div>
-      
-    </>
+          <label>Select Category</label>
+
+          <select
+            value={selectedCategory}
+            onChange={(e) => {
+
+              const newCategory = e.target.value
+
+              setSelectedCategory(newCategory)
+
+              const firstAlgorithm =
+                Object.keys(
+                  algorithms[newCategory].algorithms
+                )[0]
+
+              setSelectedAlgorithm(firstAlgorithm)
+            }}
+          >
+
+            {Object.keys(algorithms).map((key) => (
+              <option key={key} value={key}>
+                {algorithms[key].name}
+              </option>
+            ))}
+
+          </select>
+
+        </div>
+
+
+        {/* Algorithm */}
+        <div className="selector-group">
+
+          <label>Select Algorithm</label>
+
+          <select
+            value={selectedAlgorithm}
+            onChange={(e) =>
+              setSelectedAlgorithm(e.target.value)
+            }
+          >
+
+            {Object.keys(category.algorithms).map((key) => (
+              <option key={key} value={key}>
+                {category.algorithms[key].name}
+              </option>
+            ))}
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </section>
   )
 }
 

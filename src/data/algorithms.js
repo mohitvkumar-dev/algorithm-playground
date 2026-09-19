@@ -1,47 +1,100 @@
 const algorithms = {
-  Searching: [
-    'Linear Search',
-    'Binary Search',
-  ],
+  searching: {
+    name: "Searching",
+    algorithms: {
+      linearSearch: {
+        name: "Linear Search",
+        inputs: [
+          {
+            type: "array",
+            label: "Array",
+            placeholder: "Enter array: 10, 20, 30, 40"
+          },
+          {
+            type: "number",
+            label: "Target",
+            placeholder: "Enter target value"
+          }
+        ]
+      },
 
-  Sorting: [
-    'Bubble Sort',
-    'Selection Sort',
-    'Insertion Sort',
-    'Merge Sort',
-    'Quick Sort',
-  ],
+      binarySearch: {
+        name: "Binary Search",
+        inputs: [
+          {
+            type: "array",
+            label: "Sorted Array",
+            placeholder: "Enter sorted array: 10, 20, 30, 40"
+          },
+          {
+            type: "number",
+            label: "Target",
+            placeholder: "Enter target value"
+          }
+        ]
+      }
+    }
+  },
 
-  Arrays: [
-    'Kadane Algorithm',
-    'Two Sum',
-  ],
+  sorting: {
+    name: "Sorting",
+    algorithms: {
+      bubbleSort: {
+        name: "Bubble Sort",
+        inputs: [
+          {
+            type: "array",
+            label: "Array",
+            placeholder: "Enter array: 40, 10, 30, 20"
+          }
+        ]
+      },
 
-  'Linked List': [
-    'Reverse Linked List',
-    'Detect Cycle',
-  ],
+      selectionSort: {
+        name: "Selection Sort",
+        inputs: [
+          {
+            type: "array",
+            label: "Array",
+            placeholder: "Enter array: 40, 10, 30, 20"
+          }
+        ]
+      },
 
-  Stack: [
-    'Valid Parentheses',
-    'Next Greater Element',
-  ],
+      insertionSort: {
+        name: "Insertion Sort",
+        inputs: [
+          {
+            type: "array",
+            label: "Array",
+            placeholder: "Enter array: 40, 10, 30, 20"
+          }
+        ]
+      },
 
-  Queue: [
-    'Queue using Stack',
-  ],
+      mergeSort: {
+        name: "Merge Sort",
+        inputs: [
+          {
+            type: "array",
+            label: "Array",
+            placeholder: "Enter array: 40, 10, 30, 20"
+          }
+        ]
+      },
 
-  Tree: [
-    'Inorder Traversal',
-    'Preorder Traversal',
-    'Postorder Traversal',
-  ],
-
-  Graph: [
-    'BFS',
-    'DFS',
-    'Dijkstra',
-  ],
+      quickSort: {
+        name: "Quick Sort",
+        inputs: [
+          {
+            type: "array",
+            label: "Array",
+            placeholder: "Enter array: 40, 10, 30, 20"
+          }
+        ]
+      }
+    }
+  }
 }
 
 export default algorithms
