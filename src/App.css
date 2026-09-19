@@ -1,0 +1,69 @@
+nav{
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+nav > div:last-child{
+  display: flex;
+  gap:24px;
+}
+
+.algorithm-selector {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.algorithm-selector h1 {
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.selectors {
+  display: flex;
+  gap: 20px;
+}
+
+.selector-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selector-group label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.selector-group select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.selector-group select:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .algorithm-selector {
+    padding: 20px 15px;
+  }
+
+  .selectors {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
