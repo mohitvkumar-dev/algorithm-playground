@@ -4,9 +4,12 @@ import Navbar from './components/layout/Navbar'
 import './App.css'
 import AlgorithmSelector from './components/algorithm/AlgorithmSelector'
 import InputPanel from './components/input/InputPanel'
+import Visualization from './components/visualization/Visualization'
+
 
 function App() {
-
+  
+  const [result, setResult] = useState(null)
   const [selectedCategory, setSelectedCategory] = useState('searching')
 
   const [selectedAlgorithm, setSelectedAlgorithm] =
@@ -29,11 +32,10 @@ function App() {
         <InputPanel
           selectedCategory={selectedCategory}
           selectedAlgorithm={selectedAlgorithm}
+          setResult={setResult}
         />
 
-        <section>
-          <h3>Visualization</h3>
-        </section>
+        <Visualization result={result} />
 
       </main>
     </>
