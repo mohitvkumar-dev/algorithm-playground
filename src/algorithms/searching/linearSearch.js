@@ -19,18 +19,22 @@ function linearSearch(array, target) {
       })
 
       return {
-        found: true,
-        index: i,
-        steps: steps
-      }
+  array,
+  target,
+  found: true,
+  index: i,
+  steps
+}
     }
   }
-
-  return {
-    found: false,
-    index: -1,
-    steps: steps
-  }
+   return {
+  array,
+  target,
+  found: false,
+  index: -1,
+  steps
+}
+ 
 }
 
 export default linearSearch

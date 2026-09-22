@@ -1,4 +1,12 @@
+import { useEffect, useState } from 'react'
+
 function Visualization({ result }) {
+
+  const [currentStep, setCurrentStep] = useState(0)
+
+  useEffect(() => {
+    setCurrentStep(0)
+  }, [result])
 
   if (!result) {
     return (
@@ -9,41 +17,80 @@ function Visualization({ result }) {
     )
   }
 
+  const current = result.steps[currentStep]
+
+  const handleNext = () => {
+    if (currentStep < result.steps.length - 1) {
+      setCurrentStep(currentStep + 1)
+    }
+  }
+
+  const handlePrevious = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1)
+    }
+  }
+
+  const handleReset = () => {
+    setCurrentStep(0)
+  }
+
   return (
-    <section className="visualization">
+  <section className="visualization">
 
-      <h2>Visualization</h2>
+    <h2>Visualization</h2>
 
-      <div className="array-container">
+    <div className="array-container">
+      {result.array.map((value, index) => (
+        <div
+           className={
+  index === current.index
+    ? current.status === "found"
+      ? "array-box found"
+      : "array-box active"
+    : "array-box"
+}
+          key={index}
+        >
+          {value}
+        </div>
+      ))}
+    </div>
 
-        {result.steps.map((step, index) => (
-          <div className="step" key={index}>
+    <p>
+      Step {currentStep + 1} of {result.steps.length}
+    </p>
 
-            <span>
-              Index: {step.index}
-            </span>
+    <p>
+      {current.status === "found"
+        ? `Element found at index ${current.index}`
+        : `Checking element at index ${current.index}`}
+    </p>
 
-            <strong>
-              {step.value}
-            </strong>
+    <div className="visualization-controls">
 
-            <span>
-              {step.status}
-            </span>
+      <button
+        onClick={handlePrevious}
+        disabled={currentStep === 0}
+      >
+        Previous
+      </button>
 
-          </div>
-        ))}
+      <button
+        onClick={handleNext}
+        disabled={currentStep === result.steps.length - 1}
+      >
+        Next
+      </button>
 
-      </div>
+      <button onClick={handleReset}>
+        Reset
+      </button>
 
-      <p>
-        {result.found
-          ? `Element found at index ${result.index}`
-          : "Element not found"}
-      </p>
+    </div>
 
-    </section>
-  )
+  </section>
+)
 }
 
 export default Visualization

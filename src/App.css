@@ -164,3 +164,37 @@ nav > div:last-child {
     min-width: 100px;
   }
 }
+
+.array-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.array-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  background: white;
+}
+
+.array-box.active {
+  border-color: #aa3bff;
+  background: #f3e8ff;
+  transform: scale(1.08);
+}
+
+
+.array-box.found {
+  border-color: #16a34a;
+  background: #dcfce7;
+  transform: scale(1.08);
+}
